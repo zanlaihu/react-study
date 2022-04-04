@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface State {
     projectModal: boolean;
@@ -20,8 +20,8 @@ export const projectSlice = createSlice({
         closeProject(state) {
             state.projectModal = false
         },
-        changeProjectType(state){
-            state.projectType = "changes"
+        changeProjectType(state, action: PayloadAction<string>){
+            state.projectType = action.payload
         }
     }
 })
