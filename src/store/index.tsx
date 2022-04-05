@@ -10,7 +10,7 @@ import { projectSlice } from './project-list.slice'
 const store = configureStore({
   reducer: {
     kanbanList: projectSlice.reducer,
-    counter: counterSlice.reducer
+    counter: counterSlice.reducer,
   },
 })
 
