@@ -1,26 +1,32 @@
-import React from 'react'
+import React, { lazy } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import { useAppDispatch, useAppSelector } from './store'
-import { couterSliceActions } from './store/couter.slice'
-import { projectSliceActions } from './store/project-list.slice'
+// import About from './pages/about'
+import { Home } from './pages/home'
+
+const About = React.lazy(() => import('./pages/about/index'))
+
+// const About = lazy(
+//   async () =>
+//     import(
+//       /* webpackChunkname: 'KYCgettingStarted' */ './pages/about/index'
+//     ),
+// );
 
 function App() {
-  const counterValue = useAppSelector(state => state.counter.value)
-  const pro = useAppSelector(state => state.kanbanList.projectType)
-  const dispatch = useAppDispatch()
-
   return (
     <div>
-      <div>{pro}</div>
-      <div>
-        <button
-          onClick={() => {
-            dispatch(projectSliceActions.changeProjectType('try'))
-          }}
-        >
-          change
-        </button>
-      </div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route
+          path='about'
+          element={
+            <React.Suspense fallback={<>...</>}>
+              <About />
+            </React.Suspense>
+          }
+        />
+      </Routes>
     </div>
   )
 }
