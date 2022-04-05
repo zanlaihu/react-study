@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { counterSlice } from './couter.slice'
-import { projectSlice } from './project-list.slice'
+import { projectSlice } from './project.slice'
 
 // export const rootReducer = {
 //   kanbanList: projectSlice.reducer

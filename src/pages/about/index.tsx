@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useAppSelector, useAppDispatch } from "../../store"
-import { projectSliceActions } from "../../store/project-list.slice"
+import { projectSliceActions } from "../../store/project.slice"
 
 const About = () => {
     const counterValue = useAppSelector(state => state.counter.value)
