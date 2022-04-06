@@ -1,22 +1,24 @@
 import { Link } from "react-router-dom"
 import { useAppSelector, useAppDispatch } from "../../store"
+import { COUNTER_ADD_VALUE, couterSliceActions, COUTER_VALUE } from "../../store/couter.slice"
 import { projectSliceActions } from "../../store/project.slice"
 
 const About = () => {
-    const counterValue = useAppSelector(state => state.counter.value)
-    const pro = useAppSelector(state => state.kanbanList.projectType)
+    const counterValue = useAppSelector(state => state.counter[COUTER_VALUE])
+    // const pro = useAppSelector(state => state.kanbanList.projectType)
+
     const dispatch = useAppDispatch()
   
     return (
       <div>
-        <div>{pro}</div>
+        <div>{counterValue}</div>
         <div>
           <button
             onClick={() => {
-              dispatch(projectSliceActions.changeProjectType('try'))
+              dispatch(couterSliceActions[COUNTER_ADD_VALUE]())
             }}
           >
-            change
+            add
           </button>
         </div>
         <Link to="/" >home</Link>
